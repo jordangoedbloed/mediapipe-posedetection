@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Houding Corrector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="header__title">
+        <h1>Houding Corrector</h1>
+        <p class="subtitle">Train je model met voorbeelden en krijg live feedback.</p>
+      </div>
+
+      <div class="status">
+        <span class="status__dot" id="statusDot"></span>
+        <span class="status__text" id="statusText">Opstarten...</span>
+      </div>
+    </header>
+
+    <section class="layout">
+      <div class="panel">
+        <div class="panel__section">
+          <h2>Training</h2>
+          <p class="muted">Neem voorbeelden met 3 seconden aftellen. Blijf stil zitten tot hij opslaat.</p>
+
+          <div class="grid">
+            <button class="btn btn--primary" id="autoGoodBtn" type="button">Auto sample (3s): Goede houding</button>
+            <button class="btn btn--danger" id="autoBadBtn" type="button">Auto sample (3s): Slechte houding</button>
+            <button class="btn btn--ghost" id="cancelAutoBtn" type="button" disabled>Stop aftellen</button>
+            <button class="btn" id="trainBtn" type="button">Train Model</button>
+          </div>
+        </div>
+
+        <div class="panel__section">
+          <h2>Dataset</h2>
+          <p class="muted">Exporteer je samples als JSON om ze later opnieuw te gebruiken.</p>
+
+          <div class="grid grid--3">
+            <button class="btn" id="exportBtn" type="button">Exporteer JSON</button>
+            <button class="btn" id="importBtn" type="button">Importeer JSON</button>
+            <button class="btn btn--ghost" id="clearBtn" type="button">Wis Data</button>
+          </div>
+        </div>
+
+        <div class="panel__section">
+          <h2>Validatie</h2>
+          <p class="muted">Quick check op je huidige dataset.</p>
+
+          <div class="grid grid--2">
+            <button class="btn" id="accuracyBtn" type="button">Bereken Accuracy</button>
+            <div class="stats">
+              <div class="stat">
+                <div class="stat__label">Goede samples</div>
+                <div class="stat__value" id="countGood">0</div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Slechte samples</div>
+                <div class="stat__value" id="countBad">0</div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Totaal</div>
+                <div class="stat__value" id="countTotal">0</div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Min per label</div>
+                <div class="stat__value" id="minPerLabel">10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel__section">
+          <h2>Feedback</h2>
+          <div class="feedback" id="feedback">Start de houding detectie...</div>
+          <div class="hint">Tip: zorg dat je hele bovenlichaam in beeld is.</div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage__top">
+          <div class="stage__badge" id="liveBadge">Live</div>
+          <div class="stage__meta" id="liveMeta">Geen voorspelling</div>
+        </div>
+
+        <div class="stage__view">
+          <video id="video" autoplay playsinline></video>
+          <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3"></script>
+  <script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
