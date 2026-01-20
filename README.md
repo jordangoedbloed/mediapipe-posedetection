@@ -1,54 +1,53 @@
-# 🧍‍♂️ MediaPipe Pose Detection – Houding Corrector
+# 🧍‍♂️ MediaPipe Pose Detection – Posture Corrector
 
-Een client-side JavaScript applicatie die met behulp van MediaPipe Pose en ml5.js (KNN) de houding van een gebruiker herkent via de webcam.
-De gebruiker traint zelf een model met eigen pose-data en krijgt daarna real-time feedback op zijn of haar houding.
-
-
-
-
-# 🎯 Doel van dit project
-
-Het doel van dit project is om te laten zien dat ik:
-
-	•	beeldherkenning kan toepassen in een JavaScript applicatie
-	•	zelf pose-data kan verzamelen via een webcam
-	•	deze data kan voorbewerken (normaliseren)
-	•	een machine-learning model kan trainen
-	•	prestaties van het model kan evalueren met train/test split, accuracy en een confusion matrix
+A client-side JavaScript application that uses MediaPipe Pose and ml5.js (KNN) to recognize a user’s posture through a webcam.
+The user trains the model with their own pose data and then receives real-time feedback on their posture.
 
 
 
-## Gebruikte technologieën
+# 🎯 Project Goal
+
+The goal of this project is to demonstrate that I am able to:
+
+	•	apply computer vision in a JavaScript application
+	•	collect pose data independently using a webcam
+	•	preprocess and normalize this data
+	•	train a machine learning model
+	•	evaluate model performance using a train/test split, accuracy, and a confusion matrix
+
+
+
+## Technologies Used
 
 	•	MediaPipe Pose – real-time pose detection via webcam
-	•	ml5.js – KNN classifier voor machine learning
+	•	ml5.js – KNN classifier for machine learning
 	•	JavaScript (client-side)
-	•	HTML5 Canvas – visualisatie van pose landmarks
-	•	CSS – minimalistische, professionele UI
+	•	HTML5 Canvas – visualization of pose landmarks
+	•	CSS – minimalistic, professional user interface
 
-Alles draait volledig in de browser (geen backend).
-
-
-## Machine Learning workflow
-
-	1.	Verzamel pose-data (goede & slechte houding)
-	2.	Data wordt genormaliseerd
-	3.	Dataset wordt gesplitst:
-	  •	80% training
-	  •	20% test
-	4.	Model traint alleen op trainingsdata
-	5.	Test accuracy + confusion matrix worden berekend
-	6.	Model voorspelt live op nieuwe webcam input
-
-## Bekende beperkingen
-
-	•	Het model is per gebruiker (data wordt lokaal opgeslagen)
-	•	Resultaten zijn afhankelijk van:
-	  •	licht
-	  •	camera-hoek
-	  • consistentie van houding
-	•	KNN is gevoelig voor ruis, maar dit is bewust gekozen voor educatieve doeleinden
+Everything runs entirely in the browser (no backend).
 
 
-Dit project laat zien hoe beeldherkenning en machine learning op een toegankelijke manier in een webapplicatie kunnen worden geïntegreerd.
-Door eigen data te verzamelen, te normaliseren en kritisch te evalueren met test metrics, ontstaat inzicht in zowel de mogelijkheden als beperkingen van pose-based classificatie.
+## Machine Learning Workflow
+
+	1.	Collect pose data (good and bad posture)
+	2.	Normalize the pose data
+	3.	Split the dataset:
+	•	80% training
+	•	20% testing
+	4.	Train the model using only the training data
+	5.	Calculate test accuracy and generate a confusion matrix
+	6.	Predict posture live on new webcam input
+
+## Known Limitations
+
+	•	The model is user-specific (data is stored locally)
+	•	Results depend on:
+	•	lighting conditions
+	•	camera angle
+	•	consistency of posture
+	•	KNN is sensitive to noise, which is a deliberate choice for educational purposes
+
+
+This project demonstrates how computer vision and machine learning can be integrated into an accessible web application.
+By collecting custom data, applying normalization, and critically evaluating performance using test metrics, the project provides insight into both the strengths and limitations of pose-based classification.
